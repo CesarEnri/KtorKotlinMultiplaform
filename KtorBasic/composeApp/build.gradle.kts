@@ -51,6 +51,9 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.negotiation)
             implementation(libs.kotlin.serialization)
+            implementation(libs.settings)
+            implementation(libs.coil.compose)
+            implementation(libs.kamel)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -94,4 +97,3 @@ android {
         debugImplementation(compose.uiTooling)
     }
 }
-

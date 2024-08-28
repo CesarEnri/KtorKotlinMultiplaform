@@ -44,6 +44,8 @@ import network.NetworkUtils
 import network.model.ApiResponse
 import network.model.Hero
 import org.cesarenri.ktorbasic.bottombar.BottomBarScreen
+import org.cesarenri.ktorbasic.settings.MovieScreen
+import org.cesarenri.ktorbasic.settings.ProfileScreen
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -64,6 +66,7 @@ class MainScreen:Screen
 {
     @Composable
     override fun Content() {
+        val response = GetDeviceInformation().getDeviceInfo()
         val navigator = LocalNavigator.currentOrThrow
 
         var name: String by remember { mutableStateOf("") }
@@ -78,7 +81,7 @@ class MainScreen:Screen
             Spacer(modifier = Modifier.height(38.dp))
             AnimatedVisibility(name.isNotEmpty())
             {
-                Text("Hello $name", fontSize = 24.sp)
+                Text("Hello $name  plataform $response", fontSize = 24.sp)
             }
 
             Spacer(modifier = Modifier.height(38.dp))
@@ -104,6 +107,24 @@ class MainScreen:Screen
             {
                 Text("BottomBar")
             }
+
+            Spacer(modifier = Modifier.height(38.dp))
+            Button(onClick = {
+                navigator.push(ProfileScreen())
+            })
+            {
+                Text("Persistencia")
+            }
+
+            Spacer(modifier = Modifier.height(38.dp))
+            Button(onClick = {
+                navigator.push(MovieScreen())
+            })
+            {
+                Text("Peliculas")
+            }
+
+
             //list
             LazyColumn {
                 items(superHeroList){

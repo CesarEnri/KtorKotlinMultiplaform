@@ -16,6 +16,9 @@ junit = "4.13.2"
 kotlin = "2.0.0"
 ktor = "2.3.12"
 voyager = "1.1.0-beta02"
+settings-multiplatform = "1.1.1"
+coil = "3.0.0-alpha10"
+kamel = "0.9.5"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -40,6 +43,9 @@ voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", vers
 voyager-bottomSheetNavigator = { module = "cafe.adriel.voyager:voyager-bottom-sheet-navigator", version.ref = "voyager" }
 voyager-tabNavigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyager" }
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
+settings = {module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "settings-multiplatform"}
+coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+kamel = { module = "media.kamel:kamel-image", version.ref = "kamel" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
