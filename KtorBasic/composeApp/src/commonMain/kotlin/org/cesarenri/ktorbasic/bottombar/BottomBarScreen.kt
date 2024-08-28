@@ -1,11 +1,12 @@
 package org.cesarenri.ktorbasic.bottombar
 
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.tab.CurrentTab
@@ -15,6 +16,7 @@ import cafe.adriel.voyager.navigator.tab.TabNavigator
 
 class BottomBarScreen: Screen {
 
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun Content() {
         TabNavigator(
@@ -31,10 +33,10 @@ class BottomBarScreen: Screen {
                     TopAppBar(title = { Text(it.current.options.title) })
                 },
                 bottomBar = {
-                    BottomNavigation(){
+                    NavigationBar{
                         val tabNavigator = LocalTabNavigator.current
 
-                        BottomNavigationItem(
+                        NavigationBarItem(
                             selected = tabNavigator.current.key == HomeTab.key,
                             label = {Text(HomeTab.options.title)},
                             icon = { Icon(painter = HomeTab.options.icon!!, contentDescription = null) },
@@ -43,7 +45,7 @@ class BottomBarScreen: Screen {
                             }
                         )
 
-                        BottomNavigationItem(
+                        NavigationBarItem(
                             selected = tabNavigator.current.key == FavTab.key,
                             label = {Text(FavTab.options.title)},
                             icon = { Icon(painter = FavTab.options.icon!!, contentDescription = null) },
@@ -52,7 +54,7 @@ class BottomBarScreen: Screen {
                             }
                         )
 
-                        BottomNavigationItem(
+                        NavigationBarItem(
                             selected = tabNavigator.current.key == ProfileTab.key,
                             label = {Text(ProfileTab.options.title)},
                             icon = { Icon(painter = ProfileTab.options.icon!!, contentDescription = null) },
